@@ -26,8 +26,9 @@ const UserModel = require('../model/usermodel')
         }
     })
 
-    router.post("/api/userlogin  ", async(req,res)=>{
-        try {     
+    router.post("/api/userlogin", async(req,res)=>{
+        try { 
+            console.log(req.body);    
            const user= await UserModel.findOne({username:req.body.username})
            if (!user){
             return res.json({status: "Unauthorized", message: "Username not found",})
